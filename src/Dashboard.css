@@ -1,0 +1,113 @@
+body {
+  background-color: #f0f8ff;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.dashboard-title {
+  color: #111;
+  font-size: 40px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  height: 100px;
+  animation: slideInLeft 1.5s ease-in-out;
+}
+
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 4rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+  word-wrap: break-word;
+}
+
+.table th {
+  background-color: #2196f3;
+  color: white;
+  font-size: 12px; 
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+  white-space: normal; 
+}
+
+.table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+th, td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word; 
+  min-width: 100px; 
+  max-width: 200px; 
+}
+
+@keyframes fadeInRow {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-row {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInRow 1s ease-in-out forwards;
+}
+
+@media screen and (max-width: 1024px) {
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .table th, .table td {
+    font-size: 12px; 
+    min-width: 120px;
+  }
+}
