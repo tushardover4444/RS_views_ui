@@ -2,12 +2,25 @@ body {
   background-color: #f0f8ff;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .dashboard-container {
   text-align: center;
   padding: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Import the desired fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&family=Lobster&display=swap');
+
+.dashboard-title {
+  font-family: 'Lobster';
+  font-weight: 700;
+}
+
+.table th, .table td {
+  font-family: 'Open Sans', sans-serif;
 }
 
 .dashboard-title {
@@ -60,7 +73,7 @@ body {
 }
 
 .table th {
-  background-color: #2196f3;
+  background-color: #233a7a;
   color: white;
   font-size: 12px; 
   padding: 10px;

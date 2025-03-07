@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaTable } from "react-icons/fa";
+import { FaTable, FaKey, FaUser, FaIdBadge, FaPhone, FaEnvelope } from "react-icons/fa";
 import "./Dashboard.css";
 
 const API_URL =
   "http://localhost:4000/cubejs-api/v1/load?query=" +
   JSON.stringify({
     "dimensions": [
-      "memberships.membership_id",
-      "memberships.project_id",
-      "memberships.role_name",
-      "memberships.user_id"
+      "users.email",
+      "users.isActive",
+      "users.personaname",
+      "users.phone",
+      "users.tenantname",
+      "users.user_id",
+      "users.user_name"
     ]
   });
 
@@ -31,9 +34,24 @@ const Dashboard = () => {
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
+  const getColumnIcon = (col) => {
+    if (col.includes("key")) {
+      return <FaKey />;
+    } else if (col.includes("name")) {
+      return <FaUser />;
+    } else if (col.includes("id")) {
+      return <FaIdBadge />;
+    } else if (col.includes("phone")) {
+      return <FaPhone />;
+    } else if (col.includes("email")) {
+      return <FaEnvelope />;
+    }
+    return null;
+  };
+
   return (
     <div className="dashboard-container">
-      {/* Logo */}
+      
       <div className="logo-container">
         <img src="/public/images.png" alt="Company Logo" className="logo" />
       </div>
@@ -48,7 +66,7 @@ const Dashboard = () => {
             <tr>
               {columns.map((col, index) => (
                 <th key={index}>
-                  {col.replace("projects.", "").replace("_", " ").toUpperCase()}
+                  {getColumnIcon(col)} {col.split('.').pop().replace("_", " ").toUpperCase()}
                 </th>
               ))}
             </tr>
